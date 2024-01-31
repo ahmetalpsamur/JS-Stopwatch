@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="div-project"> 
+    <div class="div-stopwatch">
+      <p class="p-time-minitues">00</p>
+      <p class="p-dot">:</p>
+      <p class="p-time-second">00</p>
+      <p class="p-dot">:</p>
+      <p class="p-time-msecond">00</p>
+    </div>
+  
+    <div class="div-button">
+      <button class="button-start">Start</button>
+      <button class="button-stop">Stop</button>
+      <button class="button-reset">Reset</button>
+    </div>
+  </div>
+  
+
+  <script>
+    let second = 1000;
+    let msecond =20;
+
+    let intervalID;
+
+    const start_button = document.querySelector(".button-start");
+    const stop_button = document.querySelector(".button-stop");
+    const reset_button = document.querySelector(".button-reset");
+
+    const time_second = document.querySelector(".p-time-second");
+    const time_msecond = document.querySelector(".p-time-msecond");
+    const time_minitues = document.querySelector(".p-time-minitues");
+    
+    let timeforSecond=0;
+    let timeforMilisecond=0;
+    let timeforMinitues=0;
+
+    function startTimer() {
+    intervalID = setInterval(function () {
+        if (timeforMilisecond >= 1000) {
+            timeforMilisecond = 0;
+            timeforSecond = timeforSecond + 1;
+            if(timeforSecond>=60){
+              timeforSecond=0;
+              timeforMinitues=timeforMinitues+1;
+              time_minitues.innerHTML=timeforMinitues;
+            }
+            time_second.innerHTML = timeforSecond;
+        } else {
+            timeforMilisecond = timeforMilisecond + msecond;
+            time_msecond.innerHTML = timeforMilisecond;
+        }
+        
+    }, msecond);
+}
+
+    
+  function stopTimer(){
+    clearInterval(intervalID);
+  }
+  function resetTimer(){
+    stopTimer();
+    timeforSecond=0;
+    timeforMilisecond=0;
+    timeforMinitues=0;
+
+
+    time_msecond.innerHTML=timeforMilisecond;
+    time_second.innerHTML=timeforSecond;
+    time_minitues.innerHTML=timeforMinitues;
+  }
+    start_button.addEventListener("click",startTimer);
+    stop_button.addEventListener("click",stopTimer);
+    reset_button.addEventListener("click",resetTimer)
+
+    
+  </script>
+
+</body>
+
+</html>

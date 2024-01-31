@@ -1,0 +1,66 @@
+body{
+    background-color: rgb(56, 56, 56);
+   
+}
+
+.div-stopwatch{
+    display: grid;
+    grid-template-columns: 50px 15px 50px 15px 50px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 250px;
+    width: 250px;
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-radius: 150px;
+    border-width: 5px;
+  
+
+}
+.div-project{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    
+}
+.div-button{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+}
+.p-time-second,
+.p-time-msecond,
+.p-time-minitues,
+.p-dot
+{
+    text-align: center;
+    font-size: 50px;
+    display: inline-block;
+    color: white;
+
+}
+.p-time-msecond{
+    font-size: 25px;
+    padding-top: 10px;
+}
+.button-start,
+.button-stop,
+.button-reset
+{
+    width: 80px;
+    height: 40px;
+    font-size: 15px;
+    font-family: 'Arial';
+    color: white;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    background: none;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(137, 134, 134);
+    transition: 0.2s;
+}
